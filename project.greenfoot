@@ -1,16 +1,9 @@
 #Greenfoot project file
-<<<<<<< HEAD
+class.MyWorld.image=NiceImage.gif
 editor.fx.0.height=0
 editor.fx.0.width=0
 editor.fx.0.x=0
 editor.fx.0.y=0
-=======
-class.MyWorld.image=background.jpg
-editor.fx.0.height=728
-editor.fx.0.width=800
-editor.fx.0.x=320
-editor.fx.0.y=74
->>>>>>> parent of 9a757dd (does this gif work)
 height=875
 package.numDependencies=0
 package.numTargets=2
