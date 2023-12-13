@@ -1,10 +1,10 @@
 #Greenfoot project file
-class.MyWorld.image=NiceImage.gif
-editor.fx.0.height=0
-editor.fx.0.width=0
-editor.fx.0.x=0
-editor.fx.0.y=0
-height=875
+class.MyWorld.image=Night\ sky\ .png
+editor.fx.0.height=728
+editor.fx.0.width=800
+editor.fx.0.x=320
+editor.fx.0.y=74
+height=638
 package.numDependencies=0
 package.numTargets=2
 project.charset=UTF-8
@@ -36,7 +36,7 @@ target2.width=120
 target2.x=0
 target2.y=0
 version=3.1.0
-width=1232
+width=1387
 world.lastInstantiated=MyWorld
 xPosition=27
-yPosition=25
+yPosition=94
