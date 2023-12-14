@@ -1,5 +1,6 @@
 #Greenfoot project file
-class.MyWorld.image=background.jpg
+class.Bob.image=apple.png
+class.MyWorld.image=Screenshot\ 2023-12-14\ at\ 12.43.00\u202FPM.png
 class.TitleScreen.image=pixelback1.jpeg
 editor.fx.0.height=0
 editor.fx.0.width=0
