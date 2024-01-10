@@ -16,15 +16,15 @@ public class MyWorld extends World
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(1000,500,1);
+        super(600,400,1);
         
         Bob bob = new Bob();
-        addObject(bob, 500, 474);
+        addObject(bob, 100, 374);
     }
     
     public void checkTeleport()
     {
-        Bob bob = (Bob) getObjects(Bob.class).get(image);
+        Bob bob = (Bob) getObjects(Bob.class).get(0);
 
         int worldWidth = getWidth();
         int worldHeight = getHeight();
@@ -35,16 +35,7 @@ public class MyWorld extends World
         }
         else if (bob.getX() >= worldWidth)
         {
-            bob.setLocation(1, bob.getY());
-        }
-        
-        if (bob.getY() <= 0)
-        {
-            bob.setLocation(bob.getX(), worldHeight - 1);
-        }
-        else if (bob.getY() >= worldHeight)
-        {
-            bob.setLocation(bob.getX(), 1);
+            bob.setLocation(worldWidth + 1, bob.getY());
         }
     }
     
