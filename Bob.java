@@ -23,6 +23,7 @@ public class Bob extends Actor
     public void act()
     {
         checkKeys();
+        jump();
     }
     public void checkKeys()
     {
@@ -34,5 +35,9 @@ public class Bob extends Actor
         {
             move(5);
         }
+    }
+    public void jump()
+    {
+        setLocation
     }
 }

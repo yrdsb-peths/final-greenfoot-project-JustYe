@@ -33,9 +33,9 @@ public class MyWorld extends World
         {
             bob.setLocation(worldWidth - 1, bob.getY());
         }
-        else if (bob.getX() >= worldWidth)
+        else if (bob.getX() >= worldWidth-1)
         {
-            bob.setLocation(worldWidth + 1, bob.getY());
+            bob.setLocation(1, bob.getY());
         }
     }
     
