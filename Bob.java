@@ -13,7 +13,7 @@ public class Bob extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     GreenfootImage image = new GreenfootImage("SQUARE.png");
-    
+    double a = 0.5;
     public Bob()
     {
        image.scale(image.getWidth() / 4, image.getHeight()/4); 
@@ -23,7 +23,6 @@ public class Bob extends Actor
     public void act()
     {
         checkKeys();
-        jump();
     }
     public void checkKeys()
     {
@@ -35,9 +34,22 @@ public class Bob extends Actor
         {
             move(5);
         }
+        else if(Greenfoot.isKeyDown("w"))
+        {
+            jump();
+        }
     }
     public void jump()
     {
-        setLocation
+        for(int i = 0; i < 50; i++)
+        {
+            setLocation(getX(),getY()-1);
+            
+        }
+        for(int i = 0; i < 50; i++)
+        {
+            setLocation(getX(),getY()+1);
+            
+        }
     }
 }
