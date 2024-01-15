@@ -19,7 +19,7 @@ public class MyWorld extends World
         super(600,400,1);
         
         Bob bob = new Bob();
-        addObject(bob, 100, 374);
+        addObject(bob, 300, 374);
     }
     
     public void checkTeleport()
