@@ -1,15 +1,18 @@
 #Greenfoot project file
 class.Bob.image=SQUARE.png
-class.MyWorld.image=background.jpg
+class.MyWorld.image=forest.png
 dependency1.from=MyWorld
 dependency1.to=Bob
 dependency1.type=UsesDependency
+dependency2.from=Bob
+dependency2.to=SimpleTimer
+dependency2.type=UsesDependency
 editor.fx.0.height=728
 editor.fx.0.width=800
 editor.fx.0.x=43
 editor.fx.0.y=92
 height=875
-package.numDependencies=1
+package.numDependencies=2
 package.numTargets=3
 project.charset=UTF-8
 publish.hasSource=false
