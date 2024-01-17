@@ -12,7 +12,7 @@ public class Bob extends Actor
      * Act - do whatever the Bob wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    GreenfootImage image;
+    GreenfootImage square;
     
     /*GreenfootImage[] idleRight = new GreenfootImage[5];
     GreenfootImage[] idleLeft = new GreenfootImage[5];
@@ -30,9 +30,9 @@ public class Bob extends Actor
     
     public Bob()
     {
-        image = new GreenfootImage("SQUARE.png");
-        image.scale(image.getWidth() / 4, image.getHeight() / 4);
-        setImage(image);
+        square = new GreenfootImage("SQUARE.png");
+        square.scale(square.getWidth() / 4, square.getHeight() / 4);
+        setImage(square);
     }
 
     public void act() 
@@ -56,6 +56,8 @@ public class Bob extends Actor
                 this.onGround = true;
             }
         }
+        
+        hitBullet();
     }
     
     public void jump(){
@@ -82,6 +84,15 @@ public class Bob extends Actor
         }
         if(jumpTimer.millisElapsed() > 200){
         jumpdelay = false;
+        }
+    }
+    
+    public void hitBullet() {
+        Bullet bullet = (Bullet) getOneIntersectingObject(Bullet.class);
+        if (bullet != null) {
+            MyWorld world = (MyWorld) getWorld();
+            world.getScoreboard().decrementScore(3);
+            getWorld().removeObject(bullet);
         }
     }
 }
