@@ -14,6 +14,7 @@ public class MyWorld extends World
      */
     int score = 0;
     Label scoreLabel;
+    public ScoreBoard scoreboard;
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -22,8 +23,15 @@ public class MyWorld extends World
         Bob bob = new Bob();
         addObject(bob, 300, 354);
         
-        scoreLabel = new Label(0,80);
-        addObject(scoreLabel,50,50);
+        ScoreBoard scoreboard = new ScoreBoard();
+        addObject(scoreboard, 80, 20);
+
+        Monster squid = new Monster();
+        addObject(squid, 300, 50);
+    }
+    
+    public ScoreBoard getScoreboard() {
+        return scoreboard;
     }
     
     public void checkTeleport()
