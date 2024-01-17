@@ -45,8 +45,8 @@ public class Bob extends Actor
         if (this.real) {
             y += 0.4;
             setLocation(getX(), (int) ((double) getY() + y));
-            if (getY() > 374) {
-                setLocation(getX(), 374);
+            if (getY() > 354) {
+                setLocation(getX(), 354);
                 this.onGround = true;
             }
         }
@@ -65,7 +65,7 @@ public class Bob extends Actor
             keynotpressed = true;
         }
 
-        if(getY() < 374 && cycles != 0 && (keynotpressed || !Greenfoot.isKeyDown("w"))){
+        if(getY() < 354 && cycles != 0 && (keynotpressed || !Greenfoot.isKeyDown("w"))){
             setLocation(getX(), getY() + 5);
             cycles -= 5;
             if(cycles <= 0){
