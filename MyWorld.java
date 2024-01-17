@@ -23,7 +23,7 @@ public class MyWorld extends World
         Bob bob = new Bob();
         addObject(bob, 300, 354);
         
-        ScoreBoard scoreboard = new ScoreBoard();
+        scoreboard = new ScoreBoard();
         addObject(scoreboard, 80, 20);
 
         Monster squid = new Monster();
@@ -53,5 +53,16 @@ public class MyWorld extends World
     
     public void act() {
         checkTeleport();
+        
+        if(Greenfoot.isKeyDown("r")){
+            TitleScreen title = new TitleScreen();
+            Greenfoot.setWorld(title);
+        }
     }
+    
+    public void gameOver(){
+        Label gameOverLabel = new Label("Game Over (R to reset)", 60);
+        addObject(gameOverLabel, 300, 200);
+        removeObjects(getObjects(Bullet.class));  
+    }    
 }

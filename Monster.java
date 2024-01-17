@@ -16,7 +16,7 @@ public class Monster extends Actor
     GifImage monsterGif;
     public Monster()
     {
-        monsterGif = new GifImage("Monster.gif");
+        monsterGif = new GifImage("monster.gif");
         GreenfootImage image = monsterGif.getCurrentImage();
         setImage(image);
     }
