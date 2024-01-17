@@ -31,20 +31,10 @@ public class Bullet extends Actor
         setLocation(getX() + xVelocity, getY() + yVelocity);
     }
 
-    public  void checkCollision()
+    public void checkCollision()
     {
         if (isAtEdge()) {
             getWorld().removeObject(this);
-        } else {
-            Bob bob = (Bob) getOneIntersectingObject(Bob.class);
-            if (bob != null) {
-                // Handle collision with Bob (e.g., decrement score, remove bullet)
-                MyWorld world = (MyWorld) getWorld();
-                if (world != null && world.getScoreboard() != null) {
-                    world.getScoreboard().decrementScore(2);
-                }
-                getWorld().removeObject(this);
-            }
         }
     }
 }
