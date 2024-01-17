@@ -12,7 +12,13 @@ public class Bob extends Actor
      * Act - do whatever the Bob wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    GreenfootImage image = new GreenfootImage("SQUARE.png");
+    GreenfootImage image = new GreenfootImage("idle1.png");
+    
+    GreenfootImage[] idleRight = new GreenfootImage[5];
+    GreenfootImage[] idleLeft = new GreenfootImage[5];
+    
+    String facing = "right";
+    SimpleTimer animationTimer = new SimpleTimer();
     
     boolean real;
     double y = 0;
@@ -24,9 +30,21 @@ public class Bob extends Actor
     
     public Bob()
     {
-       image.scale(image.getWidth() / 4, image.getHeight()/4); 
-       setImage(image);
-       this.real = real;
+        for(int i = 1; i < idleRight.length; i++)
+        {
+            idleRight[i] = new GreenfootImage("images/mario/idle" + i + ".png");
+            idleRight[i].scale(50,50);
+        }
+        
+        for(int i = 1; i < idleLeft.length; i++)
+        {
+           idleLeft[i] = new GreenfootImage("images/mario/idle" + i + ".png");
+           idleLeft[i].mirrorHorizontally();
+           idleLeft[i].scale(50,50); 
+        }
+        
+        animationTimer.mark();
+        setImage(idleRight[0]);
     }
 
     public void act() 
@@ -51,10 +69,35 @@ public class Bob extends Actor
             }
         }
     }
-    
+    int imageIndex = 0;
     public void animateBob()
     {
+        if(animationTimer.millisElapsed() < 180)
+        {
+            return;
+        }
+        animationTimer.mark();
         
+        if(facing.equals("right"))
+        {
+            if(!Greenfoot.isKeyDown("d"))
+            {
+                setImage(idleRight[0]);
+                return;
+            }
+            setImage(idleRight[imageIndex]);
+            imageIndex = (imageIndex + 1) % idleRight.length;
+        }
+        else if(facing.equals("left"))
+        {
+            if(!Greenfoot.isKeyDown("a"))
+            {
+                setImage(idleRight[0]);
+                return;
+            }
+            setImage(idleLeft[imageIndex]);
+            imageIndex = (imageIndex + 1) % idleLeft.length;
+        }
     }
     
     public void jump(){
