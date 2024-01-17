@@ -38,8 +38,10 @@ public class ScoreBoard extends Actor
         }
 
         if (score < 0) {
-            getWorld().showText("Game Over", getWorld().getWidth() / 2, getWorld().getHeight() / 2);
-            Greenfoot.stop();
+            MyWorld myWorldInstance = (MyWorld) getWorld();
+            if (myWorldInstance != null) {
+            myWorldInstance.gameOver();
+            }
         }
     }
     
