@@ -1,7 +1,7 @@
 #Greenfoot project file
 class.Bob.image=SQUARE.png
 class.Bullet.image=Bullet.png
-class.Monster.image=Monster.gif
+class.Monster.image=monster.gif
 class.MyWorld.image=title.png
 class.TitleScreen.image=title.png
 dependency1.from=MyWorld
