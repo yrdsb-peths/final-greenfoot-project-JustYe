@@ -52,6 +52,11 @@ public class Bob extends Actor
         }
     }
     
+    public void animateBob()
+    {
+        
+    }
+    
     public void jump(){
         if(Greenfoot.isKeyDown("w") && !keynotpressed && !jumpdelay){
             setLocation(getX(), getY() - 10);
