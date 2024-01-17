@@ -12,6 +12,8 @@ public class MyWorld extends World
      * Constructor for objects of class MyWorld.
      * 
      */
+    int score = 0;
+    Label scoreLabel;
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -19,6 +21,9 @@ public class MyWorld extends World
         
         Bob bob = new Bob();
         addObject(bob, 300, 354);
+        
+        scoreLabel = new Label(0,80);
+        addObject(scoreLabel,50,50);
     }
     
     public void checkTeleport()
