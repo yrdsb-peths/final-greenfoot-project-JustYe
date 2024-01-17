@@ -35,7 +35,7 @@ public class TitleScreen extends World
     {
         Bob thebuilder = new Bob();
         addObject(thebuilder, 300,98);
-        Label label = new Label("Press 'a' and 'd' to move", 40);
+        Label label = new Label("a and d to move, w to jump", 40);
         addObject(label,295,265);
         Label label2 = new Label("Press 'space' to Start", 30);
         addObject(label2,299,328);
