@@ -1,6 +1,9 @@
 # Final Greenfoot Project
 This is the README.md file.
 
-Consider using **Markdown** syntax to format the text in this file. [Markdown basics](https://www.markdownguide.org/getting-started/)
+Your goal is to reach 100 score while surviving bullets targeting you.
+the controls are simple, w, a, d, shift and spacebar.
+
+For Mr.Chan: the arrays are in the Bob.class
 
 
