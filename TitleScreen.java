@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class TitleScreen extends World
 {
-    Label titleLabel = new Label("Square dodging bullet",50);
+    Label titleLabel = new Label("Dodging bullets",50);
     /**
      * Constructor for objects of class TitleScreen.
      * 
