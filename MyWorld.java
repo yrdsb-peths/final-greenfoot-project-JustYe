@@ -15,9 +15,10 @@ public class MyWorld extends World
     int score = 0;
     Label scoreLabel;
     public ScoreBoard scoreboard;
+    public GreenfootSound bgMusic;
+    public GreenfootSound victoryMusic;
     public MyWorld()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600,380,1);
         
         Bob bob = new Bob();
@@ -28,6 +29,9 @@ public class MyWorld extends World
 
         Monster squid = new Monster(scoreboard);
         addObject(squid, 300, 50);
+        
+        bgMusic = new GreenfootSound("epik.mp3");
+        victoryMusic = new GreenfootSound("victory.mp3");
     }
     
     public ScoreBoard getScoreboard() {
@@ -57,7 +61,9 @@ public class MyWorld extends World
         if(Greenfoot.isKeyDown("r")){
             TitleScreen title = new TitleScreen();
             Greenfoot.setWorld(title);
+            victoryMusic.stop();
         }
+        bgMusic.playLoop();
     }
     
     public void displayWinLabel() {
@@ -65,6 +71,8 @@ public class MyWorld extends World
         addObject(winLabel, getWidth() / 2, getHeight() / 2);
         Label gameOverLabel = new Label("R to replay", 60);
         addObject(gameOverLabel,300, 320);
+        bgMusic.stop();
+        victoryMusic.play();
     }
 
     public void gameOver(){
@@ -74,6 +82,7 @@ public class MyWorld extends World
         
         scoreboard.score = 0;
         scoreboard.updateImage();
+        bgMusic.stop();
     }   
     
     public void removeMonster() {
