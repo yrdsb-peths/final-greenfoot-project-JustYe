@@ -50,7 +50,7 @@ public class ScoreBoard extends Actor
             }
         }
         
-        if(score >= 50) {
+        if(score >= 100) {
             MyWorld myWorldInstance = (MyWorld) getWorld();
             if (myWorldInstance != null) {
                 myWorldInstance.displayWinLabel();
