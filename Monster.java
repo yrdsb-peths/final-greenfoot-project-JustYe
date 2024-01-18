@@ -14,11 +14,16 @@ public class Monster extends Actor
      */
     int speed = 2;
     GifImage monsterGif;
-    public Monster()
+    public SimpleTimer shootTimer;
+    public ScoreBoard scoreboard;
+    
+    public Monster(ScoreBoard scoreboard)
     {
         monsterGif = new GifImage("monster.gif");
+        shootTimer = new SimpleTimer();
         GreenfootImage image = monsterGif.getCurrentImage();
         setImage(image);
+        this.scoreboard = scoreboard;
     }
     
     public void act() 
@@ -40,22 +45,25 @@ public class Monster extends Actor
             speed *= -1;
         }
     }
-
     public void shoot()
     {
-        if (Greenfoot.getRandomNumber(100) < 3) {
-            Bob bob = (Bob) getWorld().getObjects(Bob.class).get(0);
-            if (bob != null) {
-                int bulletSpeed = 10;
-                double angle = Math.atan2(bob.getY() - getY(), bob.getX() - getX());
-                int xVelocity = (int) (bulletSpeed * Math.cos(angle));
-                int yVelocity = (int) (bulletSpeed * Math.sin(angle));
-
-                getWorld().addObject(new Bullet(xVelocity, yVelocity), getX(), getY());
+        int gatlingGunFrequency = 150;
+        int bulletSpeed = 12;
+        
+        if (!scoreboard.gameOver && shootTimer.millisElapsed() > gatlingGunFrequency) {
+            if (shootTimer.millisElapsed() > gatlingGunFrequency) {
+                Bob bob = (Bob) getWorld().getObjects(Bob.class).get(0);
+                if (bob != null) {
+                    double angle = Math.atan2(bob.getY() - getY(), bob.getX() - getX());
+                    int xVelocity = (int) (bulletSpeed * Math.cos(angle));
+                    int yVelocity = (int) (bulletSpeed * Math.sin(angle));
+    
+                    getWorld().addObject(new Bullet(xVelocity, yVelocity), getX(), getY());
+                    shootTimer.mark();
+                }
             }
         }
     }
-    
     public void updateAnimation()
     {
         GreenfootImage image = monsterGif.getCurrentImage();

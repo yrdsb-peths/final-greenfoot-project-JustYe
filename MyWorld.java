@@ -26,7 +26,7 @@ public class MyWorld extends World
         scoreboard = new ScoreBoard();
         addObject(scoreboard, 80, 20);
 
-        Monster squid = new Monster();
+        Monster squid = new Monster(scoreboard);
         addObject(squid, 300, 50);
     }
     
@@ -63,6 +63,9 @@ public class MyWorld extends World
     public void gameOver(){
         Label gameOverLabel = new Label("Game Over (R to reset)", 60);
         addObject(gameOverLabel, 300, 200);
-        removeObjects(getObjects(Bullet.class));  
+        removeObjects(getObjects(Bullet.class));
+        
+        scoreboard.score = 0;
+        scoreboard.updateImage();
     }    
 }

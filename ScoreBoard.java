@@ -5,13 +5,14 @@ public class ScoreBoard extends Actor
 {
     int score;
     public SimpleTimer timer;
-    
+    public boolean gameOver;
     public ScoreBoard()
     {    
         score = 0;
         timer = new SimpleTimer();
         timer.mark();
         updateImage();
+        gameOver = false;
     }
     
     public void act()
@@ -20,14 +21,18 @@ public class ScoreBoard extends Actor
     }
     public void addToScore(int points)
     {
-        score += points;
-        updateImage();
+        if (!gameOver) {
+            score += points;
+            updateImage();
+        }
     }
 
     public void decrementScore(int points)
     {
-        score -= points;
-        updateImage();
+        if (!gameOver) {
+            score -= points;
+            updateImage();
+        }
     }
 
     public void updateScore()
@@ -40,12 +45,13 @@ public class ScoreBoard extends Actor
         if (score < 0) {
             MyWorld myWorldInstance = (MyWorld) getWorld();
             if (myWorldInstance != null) {
-            myWorldInstance.gameOver();
+                myWorldInstance.gameOver();
+                gameOver = true;
             }
         }
     }
     
-    private void updateImage()
+    public void updateImage()
     {
         GreenfootImage image = new GreenfootImage("Score: " + score, 24, Color.WHITE, new Color(0, 0, 0, 0));
         setImage(image);
