@@ -113,7 +113,7 @@ public class Bob extends Actor
         Bullet bullet = (Bullet) getOneIntersectingObject(Bullet.class);
         if (bullet != null) {
             MyWorld world = (MyWorld) getWorld();
-            world.getScoreboard().decrementScore(3);
+            world.getScoreboard().decrementScore(5);
             getWorld().removeObject(bullet);
             bulletDmg.play();
         }

@@ -8,7 +8,7 @@ public class ScoreBoard extends Actor
     public boolean gameOver;
     public ScoreBoard()
     {    
-        score = 0;
+        score = 10;
         timer = new SimpleTimer();
         timer.mark();
         updateImage();
@@ -38,7 +38,7 @@ public class ScoreBoard extends Actor
     public void updateScore()
     {
         if (timer.millisElapsed() > 1000) {
-            addToScore(2); 
+            addToScore(3); 
             timer.mark();
         }
 
