@@ -39,5 +39,9 @@ public class TitleScreen extends World
         addObject(label,295,265);
         Label label2 = new Label("Press 'space' to Start", 30);
         addObject(label2,299,328);
+        Label label3 = new Label("Get 100 score", 30);
+        addObject(label3,299,230);
+        Label label4 = new Label("Press shift to sprint", 30);
+        addObject(label4,299,360);
     }
 }
