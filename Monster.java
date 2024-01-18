@@ -47,7 +47,7 @@ public class Monster extends Actor
     }
     public void shoot()
     {
-        int gatlingGunFrequency = 150;
+        int gatlingGunFrequency = 130;
         int bulletSpeed = 12;
         
         if (!scoreboard.gameOver && shootTimer.millisElapsed() > gatlingGunFrequency) {
