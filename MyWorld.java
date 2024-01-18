@@ -59,7 +59,13 @@ public class MyWorld extends World
             Greenfoot.setWorld(title);
         }
     }
-    
+    public void displayWinLabel() {
+        Label winLabel = new Label("You Win!", 60);
+        addObject(winLabel, getWidth() / 2, getHeight() / 2);
+        Label gameOverLabel = new Label("R to replay", 60);
+        addObject(gameOverLabel,300, 320);
+    }
+
     public void gameOver(){
         Label gameOverLabel = new Label("Game Over (R to reset)", 60);
         addObject(gameOverLabel, 300, 200);

@@ -38,7 +38,7 @@ public class ScoreBoard extends Actor
     public void updateScore()
     {
         if (timer.millisElapsed() > 1000) {
-            addToScore(1); 
+            addToScore(2); 
             timer.mark();
         }
 
@@ -46,6 +46,14 @@ public class ScoreBoard extends Actor
             MyWorld myWorldInstance = (MyWorld) getWorld();
             if (myWorldInstance != null) {
                 myWorldInstance.gameOver();
+                gameOver = true;
+            }
+        }
+        
+        if(score >= 100) {
+            MyWorld myWorldInstance = (MyWorld) getWorld();
+            if (myWorldInstance != null) {
+                myWorldInstance.displayWinLabel();
                 gameOver = true;
             }
         }
