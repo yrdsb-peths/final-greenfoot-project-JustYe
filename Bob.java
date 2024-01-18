@@ -56,7 +56,7 @@ public class Bob extends Actor
     
     public void act() 
     {
-        int moveVelocity = 4;
+        int moveVelocity = 2;
         if(Greenfoot.isKeyDown("shift")){
             moveVelocity *= 2;
         }

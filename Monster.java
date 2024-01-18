@@ -47,8 +47,8 @@ public class Monster extends Actor
     }
     public void shoot()
     {
-        int gatlingGunFrequency = 130;
-        int bulletSpeed = 12;
+        int gatlingGunFrequency = 140;
+        int bulletSpeed = 21;
         
         if (!scoreboard.gameOver && shootTimer.millisElapsed() > gatlingGunFrequency) {
             if (shootTimer.millisElapsed() > gatlingGunFrequency) {
@@ -68,5 +68,10 @@ public class Monster extends Actor
     {
         GreenfootImage image = monsterGif.getCurrentImage();
         setImage(image);
+    }
+    
+    public void remove()
+    {
+        getWorld().removeObject(this);
     }
 }

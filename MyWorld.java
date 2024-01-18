@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.List;
 /**
  * Write a description of class MyWorld here.
  * 
@@ -59,6 +59,7 @@ public class MyWorld extends World
             Greenfoot.setWorld(title);
         }
     }
+    
     public void displayWinLabel() {
         Label winLabel = new Label("You Win!", 60);
         addObject(winLabel, getWidth() / 2, getHeight() / 2);
@@ -73,5 +74,12 @@ public class MyWorld extends World
         
         scoreboard.score = 0;
         scoreboard.updateImage();
-    }    
+    }   
+    
+    public void removeMonster() {
+        List<Monster> monsters = getObjects(Monster.class);
+        for (Monster monster : monsters) {
+            removeObject(monster);
+        }
+    }
 }

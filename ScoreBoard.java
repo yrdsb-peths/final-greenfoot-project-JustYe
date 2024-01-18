@@ -55,10 +55,12 @@ public class ScoreBoard extends Actor
             if (myWorldInstance != null) {
                 myWorldInstance.displayWinLabel();
                 gameOver = true;
+                myWorldInstance.removeMonster();
             }
         }
     }
     
+
     public void updateImage()
     {
         GreenfootImage image = new GreenfootImage("Score: " + score, 24, Color.WHITE, new Color(0, 0, 0, 0));
