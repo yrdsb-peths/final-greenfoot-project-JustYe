@@ -8,17 +8,16 @@ import greenfoot.*;
  */
 public class Bob extends Actor
 {
+    GreenfootSound bulletDmg = new GreenfootSound("dmg.mp3");
     /**
      * Act - do whatever the Bob wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    GreenfootImage square;
-    
-    /*GreenfootImage[] idleRight = new GreenfootImage[5];
-    GreenfootImage[] idleLeft = new GreenfootImage[5];
+    GreenfootImage[] idleRight = new GreenfootImage[8];
+    GreenfootImage[] idleLeft = new GreenfootImage[8];
     String facing = "right";
     SimpleTimer animationTimer = new SimpleTimer();
-    **/
+
     
     boolean real;
     double y = 0;
@@ -30,11 +29,31 @@ public class Bob extends Actor
     
     public Bob()
     {
-        square = new GreenfootImage("SQUARE.png");
-        square.scale(square.getWidth() / 4, square.getHeight() / 4);
-        setImage(square);
+        for(int i = 0; i < idleRight.length; i++){
+            idleRight[i] = new GreenfootImage("images/elephant_idle/idle" + i  + ".png");
+        }
+        for(int i = 0; i < idleLeft.length; i++){
+            idleLeft[i] = new GreenfootImage("images/elephant_idle/idle" + i  + ".png");
+            idleLeft[i].mirrorHorizontally();
+        }
+        animationTimer.mark();
     }
-
+    int imageIndex = 0;
+    public void animateBob() {
+        if(animationTimer.millisElapsed() < 100){
+            return;
+        }
+        animationTimer.mark();
+        if(facing.equals("right")){
+            setImage(idleRight[imageIndex]);
+            imageIndex = (imageIndex + 1) % idleRight.length;
+        }
+        else{
+            setImage(idleLeft[imageIndex]);
+            imageIndex = (imageIndex + 1) % idleLeft.length;
+        }
+    }
+    
     public void act() 
     {
         int moveVelocity = 4;
@@ -43,9 +62,11 @@ public class Bob extends Actor
         }
         if(Greenfoot.isKeyDown("a") || Greenfoot.isKeyDown("left")){
             move(-moveVelocity);
+            facing = "left";
         }
         if(Greenfoot.isKeyDown("d") || Greenfoot.isKeyDown("right")){
             move(moveVelocity);
+            facing = "right";
         }
         jump();
         if (this.real) {
@@ -57,7 +78,8 @@ public class Bob extends Actor
             }
         }
         
-        hitBullet();
+        hitBullet();   
+        animateBob();
     }
     
     public void jump(){
@@ -93,6 +115,7 @@ public class Bob extends Actor
             MyWorld world = (MyWorld) getWorld();
             world.getScoreboard().decrementScore(3);
             getWorld().removeObject(bullet);
+            bulletDmg.play();
         }
     }
 }
